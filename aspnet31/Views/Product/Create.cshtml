@@ -1,0 +1,31 @@
+﻿@model aspnet31.Models.Product
+
+@{
+	ViewData["Title"] = "Insert Product";
+}
+
+@{
+    ViewBag.Supplier = "Create";
+}
+
+<h3>Hello We Are in Create Page</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" asp-for="name" class="form-control" placeholder="Product Name"/>
+                <span asp-validation-for="name" class="text-danger"></span>
+                <label>Supplier</label>
+                @Html.DropDownList("SupplierId", ViewBag.Suppliers as SelectList, "Pilih Supplier", new { @class = "required, form-control" })
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

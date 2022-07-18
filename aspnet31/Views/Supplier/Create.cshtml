@@ -1,0 +1,25 @@
+﻿@model aspnet31.Models.Supplier
+
+@{
+    ViewData["Title"] = "Insert Supplier";
+}
+
+<h3>Hello We Are in Create Page</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label>Supplier Name</label>
+                <input asp-for="Name" type="text" placeholder="Supplier Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

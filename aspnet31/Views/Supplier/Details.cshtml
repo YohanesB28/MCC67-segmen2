@@ -1,0 +1,25 @@
+﻿@model aspnet31.Models.Supplier
+
+@{
+    ViewData["Title"] = "Details Supplier";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group row">
+                <Label class="col-md-6 col-form-label" for="StaticId">Supplier Id : </Label>
+                <div class="col-md-12">
+                    <input type="text" readonly class="form-control" asp-for="Id">
+                </div>
+                <Label class="col-md-6 col-form-label" for="StaticName">Supplier Name : </Label>
+                <div class="col-md-12">
+                    <input asp-for="Name" type="text" readonly class="form-control">
+                 </div>
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model aspnet31.Models.Product
+
+@{
+	ViewData["Title"] = "Edit Product";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <Label>@Html.DisplayNameFor(model => model.Id)</Label>
+                <input asp-for="Id" class="form-control" readonly/><br></br>
+                <label>@Html.DisplayNameFor(model => model.name)</label>
+                <input type="text" asp-for="name" class="form-control" />
+                <span class="text-danger" asp-validation-for="name"></span><br></br>
+                <label>Supplier</label>
+                @*@Html.DropDownList("SupplierId", ViewBag.Suppliers as SelectList, "Pilih Supplier", new { @class = "required, form-control" })*@
+                <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.Suppliers"></select>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Save" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

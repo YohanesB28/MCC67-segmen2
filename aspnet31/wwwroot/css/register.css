@@ -1,0 +1,73 @@
+﻿/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 8, 2020, 7:10:43 PM
+    Author     : SFFel
+*/
+input {
+    border-style: hidden hidden solid;
+    display: block;
+    margin-left: 7.7em;
+    margin-top: 3em;
+}
+
+.right {
+    width: 50%;
+    display: inline-block;
+    height: 100vh;
+    float: right;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.grup {
+    margin-left: 9em;
+}
+
+.title {
+    font-weight: 600;
+    margin-left: 3.8em;
+}
+
+.buttons {
+    display: inline-block;
+    background-color: white;
+    padding: 1em 2em;
+    margin-left: 3.8em;
+    margin-top: 3em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    transition: border-radius .3s, color 1s,background-color 1s,box-shadow 1s;
+}
+
+    .buttons:hover {
+        border-radius: 30px;
+        background-color: #32e0c4;
+        color: white;
+        box-shadow: 0 4px 8px 0 #3affe1, 0 6px 20px 0 #3affe1;
+    }
+
+.left {
+    width: 50%;
+    height: 100vh;
+    background-color: #e8e8e8;
+    margin: 0;
+    overflow: hidden;
+}
+
+.componen {
+    padding-top: 12em;
+    width: 30em;
+    margin: auto;
+    text-align: center;
+}
+
+.image {
+    width: 25%;
+    border-radius: 50%;
+    margin: auto;
+}

@@ -1,0 +1,25 @@
+﻿@model aspnet31.Models.Supplier
+
+@{
+    ViewData["Title"] = "Edit Supplier";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <Label>@Html.DisplayNameFor(model => model.Id)</Label>
+                <input asp-for="Id" class="form-control" readonly/>
+                <label>@Html.DisplayNameFor(model => model.Name)</label>
+                <input asp-for="Name" type="text" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Save" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

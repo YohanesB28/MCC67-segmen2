@@ -1,0 +1,26 @@
+﻿@model aspnet31.Models.Product
+
+@{
+	ViewData["Title"] = "Delete Product";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <div class="form-group">
+                <Label>Product Id</Label>
+                <input asp-for="Id" class="form-control" readonly/>
+                <label>Product Name</label>
+                <input asp-for="name" class="form-control" readonly/>
+                <label>Supplier Name</label>
+                <input asp-for="suppliers.Name" class="form-control" readonly />
+            </div>
+            <div>
+                <input class="btn btn-danger" type="submit" value="Delete" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-link" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

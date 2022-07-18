@@ -1,0 +1,48 @@
+﻿@model aspnet31.Models.User
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Login Page";
+}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">
+        <link href="~/css/login.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="right">
+            <div class="welcome">
+                <h1>
+                    <a href="" class="typewrite" data-period="2000" 
+                       data-type='[ "Welcome", "Selamat Datang", "いらっしゃいませ", 
+                       "어서 오십시오","Sugeng Rawuh" ]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h1> 
+            </div>
+
+        </div>
+
+        <div class="left">
+            <div class="centerdivlogin">
+                <h2 align="center" class="title">LOGIN</h2>
+                <form asp-Action="Index">
+                    <div>
+                        <input type="text" asp-for="Username" placeholder="Username" />
+                        <br>
+                        <input type="Password" asp-for="Password" placeholder="Password" />
+                        <br>
+                        <button class="buttons" type="submit" value="Submit" name="login"> LOGIN </button>
+                        <p align="center">Belum punya Akun? Registrasi 
+                            <a asp-area="" asp-controller="Account" asp-action="Register">disini</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="~/js/login.js"></script>
+    </body>
+</html>

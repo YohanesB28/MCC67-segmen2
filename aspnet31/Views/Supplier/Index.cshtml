@@ -1,0 +1,32 @@
+﻿@model IEnumerable<aspnet31.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Supplier List";
+}
+
+<a class="btn btn-primary" asp-action="Create">Create</a>
+<br></br>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-center" scope="col">Id</th>
+            <th class="text-center" scope="col">Supplier Name</th>
+            <th class="text-center" scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td class="text-center">@Html.DisplayFor(model => item.Id)</td>
+			    <td class="text-center">@Html.DisplayFor(model => item.Name)</td>
+			    <td class="text-center">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+				    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+			    </td>
+            </tr>
+        }
+    </tbody>
+</table>
