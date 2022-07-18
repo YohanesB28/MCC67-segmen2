@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\app\\C#\\API\\API.csproj": {}
+    "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\app\\C#\\API\\API.csproj": {
+    "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\app\\C#\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\app\\C#\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Ryan\\.nuget\\packages\\",
-        "outputPath": "E:\\app\\C#\\API\\obj\\",
+        "outputPath": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -8739,11 +8739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\app\\C#\\aspnet31\\aspnet31.csproj",
+      "projectUniqueName": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\aspnet31\\aspnet31.csproj",
       "projectName": "aspnet31",
-      "projectPath": "E:\\app\\C#\\aspnet31\\aspnet31.csproj",
+      "projectPath": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\aspnet31\\aspnet31.csproj",
       "packagesPath": "C:\\Users\\Ryan\\.nuget\\packages\\",
-      "outputPath": "E:\\app\\C#\\aspnet31\\obj\\",
+      "outputPath": "C:\\Users\\Ryan\\Documents\\GitHub\\MCC67-segmen2\\aspnet31\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
