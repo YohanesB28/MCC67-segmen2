@@ -49,6 +49,7 @@ namespace aspnet31.Controllers
                     HttpContext.Session.SetString("Token", token);
                 }
             }
+            string test = HttpContext.Session.GetString("Token");
             return RedirectToAction("Index", "Home");
         }
 

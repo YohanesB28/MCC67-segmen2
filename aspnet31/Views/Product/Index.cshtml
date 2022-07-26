@@ -7,17 +7,17 @@
 <a class="btn btn-primary" asp-action="Create">Create</a>
 <br></br>
 
-<table class="table table-bordered">
+<table class="table table-bordered text-center" id="tableProduct">
 	<thead class="thead-dark">
 		<tr>
-			<th class="text-center" scope="col">Product Id</th>
+			<th class="text-center" scope="col">No</th>
 			<th class="text-center" scope="col">Product Name</th>
 			<th class="text-center" scope="col">Supplier Name</th>
 			<th class="text-center" scope="col">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach(var item in Model)
+		@*@foreach(var item in Model)
 		{
 			<tr>
 				<td class="text-center">@Html.DisplayFor(model => item.Id)</td>
@@ -29,6 +29,6 @@
 					<a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 				</td>
 			</tr>
-		}		
+		}	*@	
 	</tbody>
 </table>

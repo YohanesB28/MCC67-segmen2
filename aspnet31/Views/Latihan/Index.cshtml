@@ -1,0 +1,177 @@
+﻿@{
+	ViewData["Title"] = "Latihan Page";
+	//Layout = "_LayoutLatihan";
+}
+
+@*<h1 id="judul">ini sebuah judul</h1>
+<div class="container">
+	<section id="a">
+		<p class="p1">ini paragraf ke-1</p>
+		<a href="">ini sebuah link</a>
+		<p class="p2">ini paragraf ke-2</p>
+		<p class="p3">ini paragraf ke-3</p>
+	</section>
+	<section id="b">
+		<p id="a">ini paragarf 4</p>
+		<ul id="a">
+			<li class="list">ini sebuah list</li>
+			<li class="list">ini sebuah list</li>
+			<li class="list">ini sebuah list</li>
+			<li class="list">ini sebuah list</li>
+			<li class="list">ini sebuah list</li>
+		</ul>
+	</section>
+</div>*@
+@*<ul id="listpoke">
+	<li></li>
+</ul>*@
+
+<table class="table table-striped table-hover table-bordered text-center" id="tablePoke">
+	<thead class="thead-dark">
+		<tr>
+			<th>No</th>
+			<th>Nama </th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody id="tbodyPoke">
+	</tbody>
+</table>
+
+<div class="modal fade" id="modalPoke" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<div class="text-center" id="imgninfo">
+		</div>
+		<div class="modalBox">
+		  <div class="stats-box">
+		  </div>
+		  <div class="abilities-box">
+		    <ul class="list-group">  
+			</ul>
+			<table>
+				<table class="table table-striped table-hover text-center table-bordered" id="hnwTable">
+					<thead>
+						<tr class="table-info">
+							<th>Height</th>
+							<th>Weight</th>
+						</tr>
+					</thead>
+					<tbody id="table-info">
+					</tbody>
+				</table>
+			</table>
+		  </div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+      </div>
+    </div>
+  </div>
+</div>
+@*<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+
+
+<div class="grid-parent">
+  <div class="row">
+    <div class="col-6">
+      Velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo, eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst.
+    </div>
+    <div class="col-6">
+	  <div class="row">
+		<div class="col-12">
+		  Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.
+	    </div>
+	  </div>
+	  <div class="row">
+		<div class="col-12">
+		  Justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis.
+	    </div>
+	  </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-parent">
+  <div class="row">
+    <div class="col-md-6">
+	  Eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu.
+      <div class="row">
+        <div class="col-9 col-sm-6">
+		  Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+        </div>
+        <div class="col-3 col-sm-6">
+		  Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+		</div>
+      </div>
+    </div>
+	<div class="col-md-6">
+	  Eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu.
+      <div class="row">
+        <div class="col-9 col-sm-6">
+		  Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+        </div>
+        <div class="col-3 col-sm-6">
+		  Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-parent">
+  <div class="row">
+    <div class="col-6 col-sm-6">
+			Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+	</div>
+    <div class="col-6 col-sm-6">
+			Nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio.
+	</div>
+
+    <div class="col-6 col-sm-4">
+			Integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit.
+	</div>
+    <div class="col-6 col-sm-4">
+			Augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros.
+	</div>
+
+	<!-- Force next columns to break to new line -->
+    <div class="w-100"></div>
+
+	<div class="col-6 col-sm-3">
+			Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+	</div>
+    <div class="col-6 col-sm-3">
+			Nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio.
+	</div>
+
+    <div class="col-6 col-sm-3">
+			Integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit.
+	</div>
+    <div class="col-6 col-sm-3">
+			Augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros.
+	</div>
+  </div>
+</div>*@

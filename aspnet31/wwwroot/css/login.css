@@ -34,6 +34,17 @@ input {
     overflow: hidden;
 }
 
+.right {
+    width: 50%;
+    height: 80vh;
+    background-color: #e8e8e8;
+    margin: 0;
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+}
+
 .title {
     font-weight: 600;
     margin-bottom: 3em;
@@ -60,13 +71,4 @@ input {
         box-shadow: 0 4px 8px 0 #3adbff, 0 6px 20px 0 #3adbff;
     }
 
-.right {
-    width: 50%;
-    height: 80vh;
-    background-color: #e8e8e8;
-    margin: 0;
-    display: inline-block;
-    overflow: hidden;
-    float: right;
-    text-align: center;
-}
+

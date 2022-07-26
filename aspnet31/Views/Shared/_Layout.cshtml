@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - First ASP .NET</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/latihan.css" />
 </head>
 <style>
     .footer {
@@ -38,6 +40,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Latihan" asp-action="Index">Latihan</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -57,9 +62,14 @@
             &copy; 2022 - Supplier App - <a asp-area="" asp-controller="Supplier" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/latihan.js"></script>
+    <script src="~/js/trial.js"></script>
+    <script src="~/js/Product.js"></script>
+    <script src="~/js/Supplier.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

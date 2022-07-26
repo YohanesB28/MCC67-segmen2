@@ -32,7 +32,7 @@ namespace aspnet31.Repositories
             this.modelName = modelName;
             accessor = new HttpContextAccessor();
             client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue($"Bearer", accessor.HttpContext.Session.GetString("Token"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessor.HttpContext.Session.GetString("Token"));
         }
 
         #region delete

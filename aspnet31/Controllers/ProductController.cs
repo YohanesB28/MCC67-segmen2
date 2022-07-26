@@ -1,6 +1,7 @@
 ﻿using aspnet31.Models;
 using aspnet31.Repositories.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net.Http;
@@ -8,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace aspnet31.Controllers
 {
-    [Authorize(Roles = "Supervisor")]
     public class ProductController : Controller
     {
         ProductRepository productRepository;
@@ -23,12 +23,12 @@ namespace aspnet31.Controllers
         #region get
         public ActionResult Index()
         {
-            var products = productRepository.Get();
-            if (products == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            return View(products);
+            //var products = productRepository.Get();
+            //if (products == null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+            return View();
         }
         #endregion get
 

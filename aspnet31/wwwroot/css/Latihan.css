@@ -1,0 +1,174 @@
+﻿/*.container,#a,p,a,li,h1{
+    border: 2px solid #000f;
+    padding: 15px;
+    margin: 15px;
+}
+
+html{
+    margin:0;
+}
+
+body{
+    max-width:1200px;
+    margin:20px auto
+}
+
+h1{
+    background-color:red;
+}
+
+p#a{
+    background-color:cyan;
+}
+
+li:nth-child(4){
+    background-color:pink;
+}
+
+li:last-child{
+    background-color:darkorange
+}*/
+
+img {
+    /*border-radius: 100%;*/
+    /*border: solid 1px red;*/
+    display: inline;
+    width: 250px;
+    height: 250px;
+}
+
+.modalBox {
+    margin: 10px auto;
+}
+
+.stats-box {
+    width: 50%;
+    display: inline-block;
+    overflow: hidden;
+    width:350px;
+}
+
+.abilities-box {
+    padding-left: 10px;
+    width: 50%;
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+    width: 350px;
+}
+
+.modal-header{
+    background-color:mediumspringgreen ;
+}
+
+.modal-content {
+    text-transform: capitalize;
+    width: 800px;
+}
+
+#tbodyPoke {
+    text-transform: capitalize;
+}
+
+#tablePoke{
+    text-align: center;
+}
+
+#hnwTable{
+    margin-top: 30px;
+}
+
+#table-info{
+    text-transform:lowercase;
+}
+
+#base_exp{
+    background-color:darkred;
+}
+
+#lv1stat{
+    background-color: deepskyblue;
+}
+
+#lv2stat {
+    background-color: forestgreen;
+}
+
+#lv3stat {
+    background-color: gold;
+    color:black;
+}
+
+#lv4stat {
+    background-color: red;
+}
+
+#grass {
+    background-color: green;
+    color: white;
+}
+
+#poison {
+    background-color: purple;
+    color: white;
+}
+
+#fire {
+    background-color: red;
+    color: white;
+}
+
+#water {
+    background-color: blue;
+    color: white;
+}
+
+#ground {
+    background-color: chocolate;
+    color: white;
+}
+
+#bug {
+    background-color: tan
+}
+
+#dark {
+    background-color: saddlebrown;
+    color: white;
+}
+
+#rock {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+#fighting {
+    background-color: darkred;
+    color: white;
+}
+
+#psychic {
+    background-color: pink
+}
+
+#ice {
+    background-color: lightblue
+}
+
+#steel {
+    background-color: lightslategray;
+    color:white;
+}
+
+#electric {
+    background-color: yellow
+}
+
+#flying {
+    background-color: rosybrown;
+    color:white;
+}
+
+#fairy {
+    background-color: lightpink;
+}

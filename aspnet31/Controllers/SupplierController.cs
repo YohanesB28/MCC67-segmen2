@@ -1,13 +1,13 @@
 ﻿using aspnet31.Models;
 using aspnet31.Repositories.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace aspnet31.Controllers
 {
-    [Authorize(Roles = "Manager")]
     public class SupplierController : Controller
     {
         SupplierRepository supplierRepository;
@@ -21,12 +21,12 @@ namespace aspnet31.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var suppliers = supplierRepository.Get();
-            if (suppliers != null)
-            {
-                return View(suppliers);
-            }
-            return RedirectToAction("Index", "Home");
+            //var suppliers = supplierRepository.Get();
+            //if (suppliers != null)
+            //{
+            //    return View(suppliers);
+            //}
+            return View();
         }
         #endregion Get
 

@@ -66,16 +66,6 @@ namespace aspnet31
 
             app.UseSession();
 
-            app.Use(async (context, next) =>
-            {
-                var JWToken = context.Session.GetString("Token");
-                if (!string.IsNullOrEmpty(JWToken))
-                {
-                    context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
-                }
-                await next();
-            });
-
             app.UseAuthentication();
 
             app.UseAuthorization();
