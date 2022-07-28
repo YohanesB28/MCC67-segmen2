@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "Supplier List";
+	Layout = "_LayoutAdministrator";
 }
 
-<a class="btn btn-primary" asp-action="Create">Create</a>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Create</button>
 <br></br>
 
 <table class="table table-bordered text-center" id="tableSupplier">
@@ -30,3 +31,102 @@
         }*@
     </tbody>
 </table>
+
+<!-- Modal Details -->
+<div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<div class="row">
+            <div class="col-md-4">
+                <form>
+                    <div class="form-group row">
+                        <Label class="col-md-6 col-form-label" for="StaticId">Supplier Id : </Label>
+                        <div class="col-md-12" id="inpId">
+                        </div>
+                        <Label class="col-md-7 col-form-label" for="StaticName">Supplier Name : </Label>
+                        <div class="col-md-12" id="inpName">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal Create -->
+<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="supplierNameCreate">Supplier Name</label>
+              <input type="text" class="form-control" id="supplierNameCreate" placeholder="Supplier name" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please insert Supplier name.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" id="submitCreateSupplier">Submit form</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal Edit -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3" id="suppIdEdit">
+              
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3" id="suppNameEdit">
+              
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

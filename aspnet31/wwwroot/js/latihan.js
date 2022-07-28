@@ -190,6 +190,37 @@ function detailPoke(urlPoke) {
 
 $(document).ready(function () {
     $('#tablePoke').DataTable({
+        //"initComplete": function () {
+        //    table.buttons().container.appendTo();
+        //    $("#tablePoke").show();
+        //},
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: [0, 1]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [0, 1]
+                }
+            },
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: [0, 1]
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [0, 1]
+                }
+            }
+        ],
         "ajax": {
             "url": "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150",
             "dataType": "json",

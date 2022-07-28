@@ -330,3 +330,4 @@ C:\Users\Ryan\Documents\GitHub\MCC67-segmen2\aspnet31\obj\Debug\netcoreapp3.1\as
 C:\Users\Ryan\Documents\GitHub\MCC67-segmen2\aspnet31\obj\Debug\netcoreapp3.1\aspnet31.pdb
 C:\Users\Ryan\Documents\GitHub\MCC67-segmen2\aspnet31\obj\Debug\netcoreapp3.1\aspnet31.genruntimeconfig.cache
 C:\Users\Ryan\Documents\GitHub\MCC67-segmen2\aspnet31\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLatihan.cshtml.g.cs
+C:\Users\Ryan\Documents\GitHub\MCC67-segmen2\aspnet31\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
