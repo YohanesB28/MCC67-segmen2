@@ -125,10 +125,10 @@ namespace API.Base
             }
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<int> Delete(int id)
+        [HttpDelete]
+        public ActionResult<int> Delete(TModel model)
         {
-            if (repository.Delete(id) > 0)
+            if (repository.Delete(model) > 0)
             {
                 return Ok(new 
                 {

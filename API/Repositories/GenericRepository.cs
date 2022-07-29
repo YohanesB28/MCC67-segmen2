@@ -15,9 +15,8 @@ namespace API.Repositories
             this.myContext = myContext;
         }
 
-        public int Delete(int id)
+        public int Delete(TModel model)
         {
-            TModel model = Get(id);
             myContext.Set<TModel>().Remove(model);
             var result = myContext.SaveChanges();
             return result;

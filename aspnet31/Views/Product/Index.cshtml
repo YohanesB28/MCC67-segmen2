@@ -4,11 +4,12 @@
 	ViewData["Title"] = "Product List";
 	Layout = "_LayoutAdministrator";
 }
+<div id="createButton">
 
-<a class="btn btn-primary" asp-action="Create">Create</a>
+</div>
 <br></br>
 
-<table class="table table-bordered text-center" id="tableProduct">
+<table class="table table-bordered table-hover table-striped text-center" id="tableProduct">
 	<thead class="thead-dark">
 		<tr>
 			<th class="text-center" scope="col">No</th>
@@ -34,6 +35,7 @@
 	</tbody>
 </table>
 
+<!-- Modal Details -->
 <div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -61,6 +63,88 @@
                 </form>
             </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Create -->
+<div class="modal fade" id="modalCreatePro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation-createProduct" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="productNameCreate">Product Name</label>
+              <input type="text" class="form-control" id="productNameCreate" placeholder="Product name" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please insert Supplier name.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="supplierDD">Supplier Name</label>
+              <select class="custom-select custom-select-sm" id="supplierDDCreate">
+                
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" id="submitCreateProduct">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="modalEditPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form class="needs-validation-editProduct" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3" id="proIdEdit">
+              
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3" id="proNameEdit">
+              
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="supplierDD">Supplier Name</label>
+              <select class="custom-select custom-select-sm" id="supplierDDEdit">
+                
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" id="submitEditProduct">Submit</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

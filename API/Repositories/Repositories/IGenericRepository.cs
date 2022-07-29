@@ -9,6 +9,6 @@ namespace API.Repositories.Repositories
         public TModel Get(int id);
         public int Post(TModel model);
         public int Put(TModel model);
-        public int Delete(int id);
+        public int Delete(TModel model);
     }
 }
