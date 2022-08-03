@@ -21,21 +21,52 @@ namespace aspnet31.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            //var suppliers = supplierRepository.Get();
-            //if (suppliers != null)
-            //{
-            //    return View(suppliers);
-            //}
             return View();
         }
         #endregion Get
+
+        #region GetbyJson
+        [HttpGet]
+        public ActionResult GetJson()
+        {
+            var suppliers = supplierRepository.Get();
+            if (suppliers != null)
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Data Berhasil Didapatkan",
+                    data = suppliers
+                });
+            return NotFound(new
+            {
+                status = 404,
+                message = "Data Tidak Ditemukan di getbyjson"
+            });
+        }
+        #endregion GetbyJson
 
         #region Details
         [HttpGet("/Supplier/Details/{id}")]
         public ActionResult Details(int id)
         {
             var suppliers = supplierRepository.Get(id);
-            return View(suppliers);
+            if (suppliers != null)
+            {
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Data Berhasil Didapatkan",
+                    data = suppliers
+                });
+            }
+            else
+            {
+                return NotFound(new
+                {
+                    status = 404,
+                    message = "Data Tidak Ditemukan didetails"
+                });
+            }
         }
         #endregion Details
 
@@ -46,15 +77,26 @@ namespace aspnet31.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Supplier supplier)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create([FromBody]Supplier supplier)
         {
             var result = supplierRepository.Post(supplier);
-            if (result>0)
+            if (result > 0)
             {
-                return RedirectToAction("Index", "Supplier");
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Dapat Berhasil Diinputkan"
+                });
             }
-            return View();
+            else
+            {
+                return BadRequest(new
+                {
+                    status = 400,
+                    message = "Data Gagal Diinputkan"
+                });
+            }
         }
         #endregion Create
 
@@ -62,13 +104,13 @@ namespace aspnet31.Controllers
         [HttpGet("/Supplier/Edit/{id}")]
         public ActionResult Edit(int id)
         {
-            var suppliers = supplierRepository.Get(id);
-            return View(suppliers);
+            //var suppliers = supplierRepository.Get(id);
+            return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Supplier supplier)
+        [HttpPut]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit([FromBody]Supplier supplier)
         {
             /*if (ModelState.IsValid)
             {
@@ -80,11 +122,27 @@ namespace aspnet31.Controllers
             }
             return View();*/
             var result = supplierRepository.Put(supplier);
+            //if (result > 0)
+            //{
+            //    return RedirectToAction("Index", "Supplier");
+            //}
+            //return View();
             if (result > 0)
             {
-                return RedirectToAction("Index", "Supplier");
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Dapat Berhasil DiUpdate"
+                });
             }
-            return View();
+            else
+            {
+                return BadRequest(new
+                {
+                    status = 400,
+                    message = "Data Gagal Diinputkan"
+                });
+            }
         }
         #endregion Edit
 
@@ -92,21 +150,37 @@ namespace aspnet31.Controllers
         [HttpGet("/Supplier/Delete/{id}")]
         public ActionResult Delete(int id)
         {
-            var suppliers = supplierRepository.Get(id);
-            return View(suppliers);
+            //var suppliers = supplierRepository.Get(id);
+            return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Supplier supplier)
+        [HttpDelete]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete([FromBody] Supplier supplier)
         {
             //context.Entry(supplier).State = EntityState.Deleted;
             var result = supplierRepository.Delete(supplier.Id);
+            //if (result > 0)
+            //{
+            //    return RedirectToAction("Index", "Supplier");
+            //}
+            //return View();
             if (result > 0)
             {
-                return RedirectToAction("Index", "Supplier");
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Dapat Berhasil Dihapus"
+                });
             }
-            return View();
+            else
+            {
+                return BadRequest(new
+                {
+                    status = 400,
+                    message = "Data Gagal Diinputkan"
+                });
+            }
         }
         #endregion Delete
     }

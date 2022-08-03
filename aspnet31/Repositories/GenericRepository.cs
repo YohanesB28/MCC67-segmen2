@@ -31,16 +31,16 @@ namespace aspnet31.Repositories
             _clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             this.modelName = modelName;
             accessor = new HttpContextAccessor();
-            client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessor.HttpContext.Session.GetString("Token"));
+            client = new HttpClient(); 
+            client.BaseAddress = new Uri(uriBase);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessor.HttpContext.Session.GetString("JWToken"));
         }
 
         #region delete
         public int Delete(TPrimaryKey id)
         {
-            using (var client = new HttpClient())
+            using (client)
             {
-                client.BaseAddress = new Uri(uriBase);
                 var deleteTask = client.DeleteAsync(modelName+"/"+id);
                 deleteTask.Wait();
 
@@ -58,9 +58,8 @@ namespace aspnet31.Repositories
         public List<TModel> Get()
         {
             List<TModel> storedData = null;
-            using (var client = new HttpClient())
+            using (client)
             {
-                client.BaseAddress = new Uri(uriBase);
                 var responseTask = client.GetAsync(modelName);
                 responseTask.Wait();
 
@@ -82,7 +81,7 @@ namespace aspnet31.Repositories
         public TModel Get(TPrimaryKey id)
         {
             TModel storedData = null;
-            using (var client = new HttpClient())
+            using (client)
             {
                 client.BaseAddress = new Uri(uriBase);
                 var responseTask = client.GetAsync(modelName+"/"+id);
@@ -110,7 +109,8 @@ namespace aspnet31.Repositories
         #region Create
         public int Post(TModel model)
         {
-            using (var client = new HttpClient())
+            var test = model;
+            using (client)
             {
                 client.BaseAddress = new Uri(uriBase+modelName);
 
@@ -133,7 +133,7 @@ namespace aspnet31.Repositories
         #region Edit
         public int Put(TModel model)
         {
-            using (var client = new HttpClient())
+            using (client)
             {
                 client.BaseAddress = new Uri(uriBase + modelName);
 

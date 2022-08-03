@@ -1,5 +1,5 @@
 ﻿$.ajax({
-    url: "https://localhost:44318/api/Supplier"
+    url: "/Product/GetJson"
 }).done((result) => {
     console.log(result);
 });

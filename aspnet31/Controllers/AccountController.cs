@@ -46,10 +46,9 @@ namespace aspnet31.Controllers
                     var parsedObject = JObject.Parse(apiResponse);
                     var token = parsedObject["token"].ToString();
 
-                    HttpContext.Session.SetString("Token", token);
+                    HttpContext.Session.SetString("JWToken", token);
                 }
             }
-            string test = HttpContext.Session.GetString("Token");
             return RedirectToAction("Index", "Home");
         }
 

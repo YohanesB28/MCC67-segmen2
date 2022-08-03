@@ -21,23 +21,55 @@ namespace aspnet31.Controllers
         }
 
         #region get
+        [HttpGet]
         public ActionResult Index()
         {
-            //var products = productRepository.Get();
-            //if (products == null)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
             return View();
         }
         #endregion get
+
+        #region GetbyJson
+        [HttpGet]
+        public ActionResult GetJson()
+        {
+            var products = productRepository.Get();
+            if (products != null)
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Data Berhasil Didapatkan",
+                    data = products
+                });
+            return NotFound(new
+            {
+                status = 404,
+                message = "Data Tidak Ditemukan di getbyjson"
+            });
+        }
+        #endregion GetbyJson
 
         #region Details
         [HttpGet("/Product/Details/{id}")]
         public ActionResult Details(int id)
         {
             var products = productRepository.Get(id);
-            return View(products);
+            if (products != null)
+            {
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Data Berhasil Didapatkan",
+                    data = products
+                });
+            }
+            else
+            {
+                return NotFound(new
+                {
+                    status = 404,
+                    message = "Data Tidak Ditemukan didetails"
+                });
+            }
         }
         #endregion Details
 
@@ -54,18 +86,30 @@ namespace aspnet31.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create([FromBody]Product product)
         {
             if (ModelState.IsValid)
             {
                 var result = productRepository.Post(product);
                 if (result > 0)
                 {
-                    return RedirectToAction("Index", "Product");
+                    return Ok(new
+                    {
+                        status = 200,
+                        message = "Dapat Berhasil Diinputkan"
+                    });
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        status = 400,
+                        message = "Data Gagal Diinputkan"
+                    });
                 }
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }
         #endregion Create
 
@@ -82,19 +126,31 @@ namespace aspnet31.Controllers
             return View(products);
         }
 
-        [HttpPost("/Product/Edit/{id}")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        [HttpPut]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit([FromBody]Product product)
         {
             if (ModelState.IsValid)
             {
                 var result = productRepository.Put(product);
                 if (result > 0)
                 {
-                    return RedirectToAction("Index", "Product");
+                    return Ok(new
+                    {
+                        status = 200,
+                        message = "Dapat Berhasil DiUpdate"
+                    });
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        status = 400,
+                        message = "Data Gagal Diinputkan"
+                    });
                 }
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }
         #endregion Edit
 
@@ -110,16 +166,27 @@ namespace aspnet31.Controllers
             return View();
         }
 
-        [HttpPost("/Product/Delete/{id}")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Product product)
+        [HttpDelete]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete([FromBody]Product product)
         {
             var result = productRepository.Delete(product.Id);
             if (result > 0)
             {
-                return RedirectToAction("Index", "Product");
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Dapat Berhasil Dihapus"
+                });
             }
-            return View();
+            else
+            {
+                return BadRequest(new
+                {
+                    status = 400,
+                    message = "Data Gagal Diinputkan"
+                });
+            }
         }
         #endregion Delete
     }

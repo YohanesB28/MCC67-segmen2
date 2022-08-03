@@ -28,7 +28,7 @@
             }
         ],
         "ajax": {
-            "url": "https://localhost:44318/api/Supplier",
+            "url": "/Supplier/GetJson",
             "dataType": "json",
             "dataSrc": "data"
         },
@@ -47,9 +47,9 @@
                 orderable: false,
                 render: function (data, type, row) {
                     idRow = row['id']
-                    return `<button onclick="EditSupplier('https://localhost:44318/api/Supplier/${idRow}')" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEdit">Edit</button>
-                     <button onclick="detailSupplier('https://localhost:44318/api/Supplier/${idRow}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalDetails">Detail</button>
-                     <button onclick="DeleteSupplier('https://localhost:44318/api/Supplier/${idRow}')" type="button" class="btn btn-danger">Delete</button>`
+                    return `<button onclick="EditSupplier('https://localhost:44321/Supplier/Details/${idRow}')" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEdit">Edit</button>
+                     <button onclick="detailSupplier('https://localhost:44321/Supplier/Details/${idRow}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalDetails">Detail</button>
+                     <button onclick="DeleteSupplier('https://localhost:44321/Supplier/Details/${idRow}')" type="button" class="btn btn-danger">Delete</button>`
                 }
             }
         ]
@@ -64,7 +64,7 @@
             } else {
                 event.preventDefault();
                 let objC = {};
-                objC.name = $("#supplierNameCreate").val();
+                objC.Name = $("#supplierNameCreate").val();
                 console.log(objC);
 
                 //Create
@@ -73,17 +73,21 @@
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Supplier",
-                    type: "POST",
+                    url: "/Supplier/Create/",
                     dataType: "json",
+                    type: "POST",
                     data: JSON.stringify(objC),
+                    //beforeSend: function (data) {
+                    //    data.setRequestHeader("RequestVerificationToken", $("[name = 'RequestVerificationToken']").val());
+                    //},
                     success: function (data) {
                         $("#tableSupplier").DataTable().ajax.reload();
                         $('#modalCreate').modal('hide');
-                        Swal.fire({
-                            icon: 'success',
-                            text: 'Data has been saved'
-                        })
+                        Swal.fire(
+                            'Saved!',
+                            'Your data has been Saved.',
+                            'success'
+                        )
                     },
                     error: function (errormessage) {
                         Swal.fire({
@@ -120,17 +124,18 @@
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Supplier",
+                    url: "/Supplier/Edit/",
                     type: "PUT",
                     dataType: "json",
                     data: JSON.stringify(objE),
                     success: function (data) {
                         $("#tableSupplier").DataTable().ajax.reload();
                         $('#modalEdit').modal('hide');
-                        Swal.fire({
-                            icon: 'success',
-                            text: 'Data has been saved'
-                        })
+                        Swal.fire(
+                            'Updated!',
+                            'Your data has been Updated.',
+                            'success'
+                        )
                     },
                     error: function (errormessage) {
                         console.log(errormessage)
@@ -153,6 +158,7 @@ function detailSupplier(urlDetails) {
         url: urlDetails
     }).done((result) => {
         let dataDetails = result.data;
+        console.log(result);
         inpId = `<input value="${dataDetails.id}" type="text" readonly class="form-control">`;
         inpName = `<input value="${dataDetails.name}" type="text" readonly class="form-control">`;
         $("#inpId").html(inpId);
@@ -216,7 +222,7 @@ function DeleteSupplier(urlDetails) {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Supplier",
+                    url: "/Supplier/Delete/",
                     type: "DELETE",
                     dataType: "json",
                     data: JSON.stringify(objD),
@@ -225,7 +231,7 @@ function DeleteSupplier(urlDetails) {
                         $('#modalDelete').modal('hide');
                         swalWithBootstrapButtons.fire(
                             'Deleted!',
-                            'Your file has been deleted.',
+                            'Your data has been deleted.',
                             'success'
                         )
                     },

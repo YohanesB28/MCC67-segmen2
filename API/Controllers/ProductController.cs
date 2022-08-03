@@ -11,7 +11,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Supervisor")]
+    [Authorize(Roles = "Manager")]
     public class ProductController : BaseController<Product, ProductRepository>
     {
         ProductRepository repository;

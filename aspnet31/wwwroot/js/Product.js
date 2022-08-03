@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
+    callCreateButton();
     $('#tableProduct').DataTable({
-
         dom: 'Bfrtip',
         buttons: [
             {
@@ -29,7 +29,7 @@
             }
         ],
         "ajax": {
-            "url": "https://localhost:44318/api/Product",
+            "url": "/Product/GetJson",
             "dataType": "json",
             "dataSrc": "data"
         },
@@ -51,14 +51,13 @@
                 orderable: false,
                 render: function (data, type, row) {
                     idRow = row['id']
-                    return `<button onclick="EditProduct('https://localhost:44318/api/Product/${idRow}')" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEditPro">Edit</button>
-                     <button onclick="detailProduct('https://localhost:44318/api/Product/${idRow}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalDetails">Detail</button>
-                     <button onclick="deleteProduct('https://localhost:44318/api/Product/${idRow}')" type="button" class="btn btn-danger">Delete</button>`
+                    return `<button onclick="EditProduct('https://localhost:44321/Product/Details/${idRow}')" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEditPro">Edit</button>
+                     <button onclick="detailProduct('https://localhost:44321/Product/Details/${idRow}')" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalDetails">Detail</button>
+                     <button onclick="deleteProduct('https://localhost:44321/Product/Details/${idRow}')" type="button" class="btn btn-danger">Delete</button>`
                 }
             }
         ]
     });
-    callCreateButton();
     var forms = document.getElementsByClassName('needs-validation-createProduct');
     var validation = Array.prototype.filter.call(forms, function (form) {
         form.addEventListener('submit', function (event) {
@@ -79,17 +78,18 @@
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Product",
+                    url: "/Product/Create/",
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify(objCPro),
                     success: function (data) {
                         $("#tableProduct").DataTable().ajax.reload();
                         $('#modalCreatePro').modal('hide');
-                        Swal.fire({
-                            icon: 'success',
-                            text: 'Data has been saved'
-                        })
+                        Swal.fire(
+                            'Saved!',
+                            'Your data has been Saved.',
+                            'success'
+                        )
                     },
                     error: function (errormessage) {
                         Swal.fire({
@@ -131,17 +131,18 @@
                         'Accept': 'text/plain',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Product",
+                    url: "/Product/Edit/",
                     type: "PUT",
                     dataType: "json",
                     data: JSON.stringify(objEPro),
                     success: function (data) {
                         $("#tableProduct").DataTable().ajax.reload();
                         $('#modalEditPro').modal('hide');
-                        Swal.fire({
-                            icon: 'success',
-                            text: 'Data has been saved'
-                        })
+                        Swal.fire(
+                            'Updated!',
+                            'Your data has been Updated.',
+                            'success'
+                        )
                     },
                     error: function (errormessage) {
                         console.log(errormessage)
@@ -187,7 +188,7 @@ function deleteProduct(urlDetails) {
                 confirmButton: 'btn btn-success',
                 cancelButton: 'btn btn-danger'
             },
-            buttonsStyling: false
+            buttonsStyling: true
         })
 
         swalWithBootstrapButtons.fire({
@@ -216,7 +217,7 @@ function deleteProduct(urlDetails) {
                         'Accept': 'text/plain',
                         'Content-Type': 'application/json'
                     },
-                    url: "https://localhost:44318/api/Product",
+                    url: "/Product/Delete",
                     type: "Delete",
                     dataType: "json",
                     data: JSON.stringify(objDPro),
@@ -225,7 +226,7 @@ function deleteProduct(urlDetails) {
                         $('#modalDelete').modal('hide');
                         swalWithBootstrapButtons.fire(
                             'Deleted!',
-                            'Your file has been deleted.',
+                            'Your data has been deleted.',
                             'success'
                         )
                     },
@@ -275,7 +276,7 @@ function EditProduct(urlDetails) {
                  <input value="${dataDetails.supplierId}" type="hidden" class="form-control" id="suppIdEditPro" readonly>`;
         $("#proIdEdit").html(editId);
         $("#proNameEdit").html(editName);
-        getSupplier("https://localhost:44318/api/Supplier/", result.data);
+        getSupplier("/Supplier/GetJson", result.data);
     }).fail((error) => {
 
     });
@@ -308,7 +309,7 @@ function callCreateButton() {
 
 function CreateProduct() {
     $.ajax({
-        url: "https://localhost:44318/api/Supplier/"
+        url: "/Supplier/GetJson/"
     }).done((result) => {
         let textSDD = `<option selected>~Select Supplier Name~</option>`;
         $.each(result.data, function (key, val) {

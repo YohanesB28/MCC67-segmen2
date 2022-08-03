@@ -11,7 +11,7 @@ namespace API.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Staff")]
     public class SupplierController : BaseController<Supplier, SupplierRepository>
     {
         SupplierRepository repository;

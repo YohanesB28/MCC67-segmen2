@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace aspnet31
@@ -44,6 +45,13 @@ namespace aspnet31
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            services.AddAntiforgery(options =>
+            {
+                options.FormFieldName = "AntiForgeryFieldName";
+                options.HeaderName = "AntiForgeryHeaderName";
+                options.Cookie.Name = "AntiForgeryCookieName";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +72,33 @@ namespace aspnet31
     
             app.UseRouting();
 
+            app.UseStatusCodePages(async context =>
+            {
+                var request = context.HttpContext.Request;
+                var response = context.HttpContext.Response;
+
+                if (response.StatusCode.Equals((int) HttpStatusCode.Unauthorized))
+                {
+                    response.Redirect("/Unauthorized");
+                } else if (response.StatusCode.Equals((int)HttpStatusCode.NotFound))
+                {
+                    response.Redirect("/Notfound");
+                }
+            });
+
             app.UseSession();
+
+            app.Use(async (context, next) =>
+            {
+                var JWToken = context.Session.GetString("JWToken");
+
+                if (!string.IsNullOrEmpty(JWToken))
+                {
+                    context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
+                }
+
+                await next();
+            });
 
             app.UseAuthentication();
 

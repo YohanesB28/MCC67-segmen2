@@ -4,6 +4,13 @@
     ViewData["Title"] = "Supplier List";
 	Layout = "_LayoutAdministrator";
 }
+@*@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    }
+}*@
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Create</button>
 <br></br>
@@ -77,10 +84,12 @@
       </div>
       <div class="modal-body">
         <form class="needs-validation-createSupplier" novalidate>
+          @*@Html.AntiForgeryToken()*@
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="supplierNameCreate">Supplier Name</label>
               <input type="text" class="form-control" id="supplierNameCreate" placeholder="Supplier name" required>
+              @*<input id="RequestVerificationToken" name="__RequestVerificationToken" type="hidden" value="@GetAntiXsrfRequestToken()">  *@
               <div class="valid-feedback">
                 Looks good!
               </div>
