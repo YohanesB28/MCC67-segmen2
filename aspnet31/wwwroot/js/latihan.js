@@ -240,7 +240,7 @@ $(document).ready(function () {
                 data: null,
                 orderable: false,
                 render: function (data, type, row) {
-                    return `<button type="button" onclick="detailPoke('${row['url']}')" class="btn btn-primary" data-toggle="modal" data-target="#modalPoke">
+                    return `<button type="button" onclick="detailPoke('${row['url']}')" class="btn btn-info" data-toggle="modal" data-target="#modalPoke">
                           Detail
                         </button>`
                 }
